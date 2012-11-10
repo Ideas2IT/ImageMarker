@@ -1,0 +1,121 @@
+<!--
+ * ImageMarker - The Simple Basic Image Drawing and Editing Tool
+ * Copyright (C) 2012-2013 Madan
+ * madan.v@ideas2it.com
+ * http://key2start.wordpress.com
+-->
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="library/ext-3.0.3/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="assets/styles/imgedit.css" />
+
+<script type="text/javascript" src="library/ext-3.0.3/adapter/ext/ext-base-debug.js"></script>
+<script type="text/javascript" src="library/ext-3.0.3/ext-all-debug.js"></script>
+<script type="text/javascript" src="library/ext-3.0.3/nextgen-ext-all-debug.js"></script>
+<script type="text/javascript" src="library/jquery/jquery.js"></script>
+<script type="text/javascript" src="assets/scripts/imgedit.js"></script>
+<script type="text/javascript" src="assets/scripts/image_scroller.js"></script>
+
+</head>
+<body>
+<table width="540" height="409" border="0" bordercolor="#6699CC">
+	<tr>
+		<td width="533" height="23" class="border" colspan="2">
+			<table width="100%" border="0">
+  				<tr class="icons">
+					<!-- The basic drawing tools -->
+					<td width="42" height="34"><img class="edit" src="imageedit/tools/line.gif" alt="L" width="32" height="32" title="Line" id="line"/></td>
+					<td width="42"><img class="edit" src="imageedit/tools/pencil.gif" alt="P" width="32" height="32" title="Pencil" id="pencil"/></td>
+					<td width="42"><img class="edit" src="imageedit/tools/rectangle.gif" alt="R" width="32" height="32" title="Rectangle" id="rect"/></td>
+					<td width="42"><img class="edit" src="imageedit/tools/circle.gif" alt="C" width="32" height="32" title="Circle" id="circle"/></td>
+					<td width="42"><img class="edit" src="imageedit/tools/text.gif" alt="T" width="32" height="32" title="Text" id="text"/></td>
+					<td width="42"><img class="edit" src="imageedit/tools/Undo.gif" alt="U" width="32" height="32" title="Undo" id="undo"/></td>
+					<td width="42"><img class="edit" src="imageedit/tools/Redo.gif" alt="Re" width="32" height="32" title="Redo" id="redo"/></td>
+					
+					<td width="194">&nbsp;</td>
+					<td><div align="right" id="update_image"></div></td>
+					<td><div align="right" id="save_img_btn"></div></td>					
+  				</tr>
+			</table>
+		</td>			    
+	</tr>
+
+	<tr>
+		<td height="23" class="border" style="width: 460px;" colspan="2">
+		<table>
+			<tr>
+				<td width="60%">
+					<table border="0">  						
+						<tr class="icons">
+						<!-- Fundus are image stamps that can be as it is placed on another image being edited by a selection and a mouse click -->
+						<td width="26" height="26" style="text-align: center; border: 1px solid;"><img class="edit" src="imageedit/fundus/1.png" alt="1" id="fundus_1" onclick="storeCurrentFundus(this.id);"></td>
+						<td width="26" height="26" style="text-align: center; border: 1px solid;"><img class="edit" src="imageedit/fundus/2.png" alt="2" id="fundus_2" onclick="storeCurrentFundus(this.id);"></td>
+						<td width="26" height="26" style="text-align: center; border: 1px solid;"><img class="edit" src="imageedit/fundus/3.png" alt="3" id="fundus_3" onclick="storeCurrentFundus(this.id);"></td>
+						<td width="26" height="26" style="text-align: center; border: 1px solid;"><img class="edit" src="imageedit/fundus/4.png" alt="4" id="fundus_4" onclick="storeCurrentFundus(this.id);"></td>
+						<td width="26" height="26" style="text-align: center; border: 1px solid;"><img class="edit" src="imageedit/fundus/5.png" alt="5" id="fundus_5" onclick="storeCurrentFundus(this.id);"></td>
+						<td width="26" height="26" style="text-align: center; border: 1px solid;"><img class="edit" src="imageedit/fundus/6.png" alt="6" id="fundus_6" onclick="storeCurrentFundus(this.id);"></td>
+						<td width="26" height="26" style="text-align: center; border: 1px solid;"><img class="edit" src="imageedit/fundus/7.png" alt="7" id="fundus_7" onclick="storeCurrentFundus(this.id);"></td>
+						<td width="26" height="26" style="text-align: center; border: 1px solid;"><img class="edit" src="imageedit/fundus/8.png" alt="8" id="fundus_8" onclick="storeCurrentFundus(this.id);"></td>
+						<td width="26" height="26" style="text-align: center; border: 1px solid;"><img class="edit" src="imageedit/fundus/9.png" alt="9" id="fundus_9" onclick="storeCurrentFundus(this.id);"></td>
+								
+  						</tr>
+					</table>
+				</td>
+				<td>
+		
+			<table border="0" width="">
+  				<tbody><tr class="icons">
+					<!-- Some basic color selection options -->
+					<td width="26" height="26" style="text-align: center; border: 1px solid; cursor: pointer; background-color: rgb(0, 0, 0);" onclick="selectColorCode(this);"></td>
+					<td width="26" height="26" style="text-align: center; border: 1px solid; cursor: pointer; background-color: rgb(238, 130, 238);" onclick="selectColorCode(this);"></td>
+					<td width="26" height="26" style="text-align: center; border: 1px solid; cursor: pointer; background-color: rgb(75, 0, 130);" onclick="selectColorCode(this);"></td>
+					<td width="26" height="26" style="text-align: center; border: 1px solid; cursor: pointer; background-color: rgb(0, 0, 255);" onclick="selectColorCode(this);"></td>
+					<td width="26" height="26" style="text-align: center; border: 1px solid; cursor: pointer; background-color: rgb(0, 255, 0);" onclick="selectColorCode(this);"></td>
+					<td width="26" height="26" style="text-align: center; border: 1px solid; cursor: pointer; background-color: rgb(255, 255, 0);" onclick="selectColorCode(this);"></td>
+					<td width="26" height="26" style="text-align: center; border: 1px solid; cursor: pointer; background-color: rgb(255, 165, 0);" onclick="selectColorCode(this);"></td>
+					<td width="26" height="26" style="text-align: center; border: 1px solid; cursor: pointer; background-color: rgb(255, 0, 0);" onclick="selectColorCode(this);"></td>
+					<td width="26" height="26" style="text-align: center; border: 1px solid; cursor: pointer; background-color: rgb(255, 255, 255);" onclick="selectColorCode(this);"></td>
+  				</tr>
+				</tbody>
+			</table>
+		</td>
+		</tr></table>
+	</td>			    
+	</tr>
+				  
+	<tr>
+	    <td colspan="2">
+		<div id="can_container">
+			<!-- The actual drawing area -->
+			<canvas id="imageView" width="530" height="500"></canvas>
+		</div>
+	    </td>
+	  	
+	</tr>
+	</table>
+
+	<br/>
+
+	<div align="left"><input type="hidden" id="next_history" value="0" />
+		<input type="hidden" id="cnImageFormName" value="${cnImageFormName}" />
+		<input type="hidden" id="cnImageFormId" value="${cnImageFormId}" />
+	
+	</div>
+	<div id="left-scroll-gallery">
+		<div id="prev_histories">
+	  		<!-- Here is the place where the saved images are placed in a horizontal scrolling manner
+			     User can again click this, load in drawing area and again edit and update -->
+	  		
+	 	 </div>
+	</div>
+	
+		
+	<script>
+		renderSaveButton();
+		initCanvas();
+		scrollImagesTop();
+		scrollImagesLeft();		
+	</script>
+</body>
+</html>

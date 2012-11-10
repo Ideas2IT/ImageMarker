@@ -1,0 +1,5 @@
+#extgrid .x-grid3-row-over{border-style:solid;border-width:1px;border-color:black}
+.icon-clear-group{background-image:url(../images/default/icons/control_rewind.png)!important}
+.x-grid3-cell-inner-textarea{overflow:visible;white-space:pre-wrap!important;word-wrap:break-word;word-break:break-all}
+.not_normal{color:red}
+.normal{color:green}
