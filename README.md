@@ -1,14 +1,14 @@
 ImageMarker
 ===========
 
-Image Editor – A simple and basic image editing tool with HTML5 Canvas
+Image Editor - A simple and basic image editing tool with HTML5 Canvas.
 
-This is a HTML 5 canvas based image editor, that allows to use basic tools like pencil, circle, line, text, etc
+Designed to be easily embedded within web application. This is a HTML 5 canvas based image editor, that allows to use basic tools like pencil, circle, line, text, etc
 and draw basic images and view your drawing as separate image. This supports operations like undo and redo too.
 
 The default drawing tool at the time we load is Pencil. We can select any tool by just clicking on the tools shown.
 
-And we have fundus images, set of image stamps that can be just placed on top of the image created in drawing area. 
+Support fundus images, set of image stamps that can be just placed on top of the image created in drawing area. 
 Just click any stamp and click on the drawing area where you want to place.
 
 Few basic colors are available in color panel for changing the colors of drawing. Colors are not applicable for fundus images.
